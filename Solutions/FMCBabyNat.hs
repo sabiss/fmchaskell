@@ -44,10 +44,11 @@ pred (S n) = n
 
 -- Output: O means False, S O means True
 even :: Nat -> Nat 
---só consigo pensar que: para n ser par, deve existir um k inteiro tal que n=2k
--- e impar deve ser que n =2k+1
--- mas não sei traduzir para S O
-even = undefined
+even O = S O --par
+even (S O) = O -- impar
+even (S(S n)) = even n
+-- dois casos base, se for zero=par, se for um=impar. S(S n) eu vou olhando os sucessores de dois em dois. 
+-- EX: S(S(S O)) -> even S O = impar, pego o número, diminuo 2 dele e recoloco o número resultante em EVEN até atingir um caso base
 
 odd :: Nat -> Nat
 --mesma coisa de even, sei que um número é ímpar se n=2k+1, mas não sei colocar em S O
