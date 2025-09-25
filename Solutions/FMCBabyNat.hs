@@ -80,7 +80,11 @@ infixl 7 *
 
 -- exponentiation
 (^) :: Nat -> Nat -> Nat
-(^) = undefined
+_ ^ O = S O
+n ^ (S O) = n
+n ^ (S m) = n * (n ^ m)--3*4 = 3*(4-1) > 3*(3-1) > 3*(2-1) > 3*(1)
+--                       81     3*27      9*3=27       3*3=9   3
+
 
 -- decide: infix? ? ^
 
