@@ -65,7 +65,7 @@ odd (S(S n)) = odd n
 monus :: Nat -> Nat -> Nat
 monus O n = O --se o primeiro número acabar antes do segundo, então ele é menor, logo, dará negativo e, pelo enunciado, deve ser zero
 monus n O = n --5-0=5
-monus n (S O) = S n --6+1 = 7 e 7 é sucessor de 6
+monus (S n) (S O) = n --6-1 = 5 e  5 é antecessor de 6
 monus (S n) (S m) = monus n m -- vai diminuindo de um em um os parâmetros até chegar num caso base
 
 (-*) :: Nat -> Nat -> Nat
