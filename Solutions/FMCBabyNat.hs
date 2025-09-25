@@ -56,12 +56,17 @@ odd (S O) = S O --true = impar
 odd (S(S n)) = odd n
 -- 1 3 5 7 9 os impares vão acontecendo de trás pra frente de -2 em -2 até chegar no caso base 1
 
+
+
 -- This is called the dotminus or monus operator
 -- (also: proper subtraction, arithmetic subtraction, ...).
 -- It behaves like subtraction, except that it returns 0
 -- when "normal" subtraction would return a negative number.
 monus :: Nat -> Nat -> Nat
-monus = undefined
+monus O n = O --se o primeiro número acabar antes do segundo, então ele é menor, logo, dará negativo e, pelo enunciado, deve ser zero
+monus n O = n --5-0=5
+monus n (S O) = S n --6+1 = 7 e 7 é sucessor de 6
+monus (S n) (S m) = monus n m -- vai diminuindo de um em um os parâmetros até chegar num caso base
 
 (-*) :: Nat -> Nat -> Nat
 (-*) = monus
