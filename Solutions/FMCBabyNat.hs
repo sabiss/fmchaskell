@@ -102,8 +102,9 @@ factorial :: Nat -> Nat
 factorial = undefined
 
 -- signum of a number (-1, 0, or 1)
-sg :: Nat -> Nat --um natural nunca será negativo
-sg = undefined  
+sg :: Nat -> Nat --um natural nunca será negativo, então so tenho que tratar quando for zero ou um sucessor
+sg O = zero
+sg (S n) = one
 
 -- lo b a is the floor of the logarithm base b of a
 lo :: Nat -> Nat -> Nat
