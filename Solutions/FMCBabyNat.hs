@@ -65,8 +65,9 @@ monus = undefined
 
 -- multiplication
 (*) :: Nat -> Nat -> Nat
-(*) = undefined
-
+(*) _ O = O
+(*) n (S m) = n + (n * m) -- 5*S(S O) = 5+(5*SO) > 5+SO = 5+(5*O)
+                          --    10         5+5                5
 infixl 7 *
 
 -- exponentiation
@@ -102,7 +103,7 @@ factorial :: Nat -> Nat
 factorial = undefined
 
 -- signum of a number (-1, 0, or 1)
-sg :: Nat -> Nat --um natural nunca será negativo, então so tenho que tratar quando for zero ou um sucessor
+sg :: Nat -> Nat --um natural nunca será negativo, então so tenho que tratar quando for zero ou um 
 sg O = zero
 sg (S n) = one
 
