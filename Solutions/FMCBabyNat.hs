@@ -34,19 +34,23 @@ infixl 6 +
 
 -- Output: O means False, S O means True
 isZero :: Nat -> Nat
-isZero O = S O
-isZero (S n) = O
+isZero O = S O --sim
+isZero (S n) = O --não
 
 -- pred is the predecessor but we define zero's to be zero
 pred :: Nat -> Nat
-pred O = O
+pred O = O 
 pred (S n) = n
 
 -- Output: O means False, S O means True
-even :: Nat -> Nat
+even :: Nat -> Nat 
+--só consigo pensar que: para n ser par, deve existir um k inteiro tal que n=2k
+-- e impar deve ser que n =2k+1
+-- mas não sei traduzir para S O
 even = undefined
 
 odd :: Nat -> Nat
+--mesma coisa de even, sei que um número é ímpar se n=2k+1, mas não sei colocar em S O
 odd = undefined
 
 -- This is called the dotminus or monus operator
@@ -98,8 +102,8 @@ factorial :: Nat -> Nat
 factorial = undefined
 
 -- signum of a number (-1, 0, or 1)
-sg :: Nat -> Nat
-sg = undefined
+sg :: Nat -> Nat --um natural nunca será negativo
+sg = undefined  
 
 -- lo b a is the floor of the logarithm base b of a
 lo :: Nat -> Nat -> Nat
