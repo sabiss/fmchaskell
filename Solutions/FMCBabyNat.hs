@@ -51,8 +51,10 @@ even (S(S n)) = even n
 -- EX: S(S(S O)) -> even S O = impar, pego o número, diminuo 2 dele e recoloco o número resultante em EVEN até atingir um caso base
 
 odd :: Nat -> Nat
---mesma coisa de even, sei que um número é ímpar se n=2k+1, mas não sei colocar em S O
-odd = undefined
+odd O = O --false = par
+odd (S O) = S O --true = impar 
+odd (S(S n)) = odd n
+-- 1 3 5 7 9 os impares vão acontecendo de trás pra frente de -2 em -2 até chegar no caso base 1
 
 -- This is called the dotminus or monus operator
 -- (also: proper subtraction, arithmetic subtraction, ...).
