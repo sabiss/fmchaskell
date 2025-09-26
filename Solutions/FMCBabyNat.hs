@@ -67,7 +67,6 @@ odd (S(S n)) = odd n
 monus :: Nat -> Nat -> Nat
 monus O n = O --se o primeiro número acabar antes do segundo, então ele é menor, logo, dará negativo e, pelo enunciado, deve ser zero
 monus n O = n --5-0=5
-monus (S n) (S O) = n --6-1 = 5 e  5 é antecessor de 6
 monus (S n) (S m) = monus n m -- vai diminuindo de um em um os parâmetros até chegar num caso base
 
 (-*) :: Nat -> Nat -> Nat
@@ -94,11 +93,12 @@ n ^ (S m) = n * (n ^ m)--3*4 = 3*(4-1) > 3*(3-1) > 3*(2-1) > 3*(1)
 (/) :: Nat -> Nat -> Nat
 numerador / S O = numerador
 O / _ = O
-_ / O = undefined
+_ / O = O
 numerador / denominador =
-    case numerador-*denominador of
-      O -> S O --numerador e denominador iguais ou denominador é maior
-      S _ -> S O +((numerador-*denominador)/denominador)
+    case denominador-*numerador of
+      S _ -> O--d > m 8/10 quantas vezes 10 cabe inteiramente em 8? NENHUMA 
+      O -> S O + ((numerador-*denominador)/denominador) --n>d
+      
 infixl 7 /
 
 -- remainder
