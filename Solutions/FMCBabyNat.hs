@@ -92,13 +92,13 @@ n ^ (S m) = n * (n ^ m)--3*4 = 3*(4-1) > 3*(3-1) > 3*(2-1) > 3*(1)
 
 -- quotient
 (/) :: Nat -> Nat -> Nat
-n / S O = n
+numerador / S O = numerador
 O / _ = O
 _ / O = undefined
-n / m =
-    case n-*m of
-      O -> S O --numerador e denominador iguais
-      S _ -> S O +((n-*m)/m)
+numerador / denominador =
+    case numerador-*denominador of
+      O -> S O --numerador e denominador iguais ou denominador é maior
+      S _ -> S O +((numerador-*denominador)/denominador)
 infixl 7 /
 
 -- remainder
