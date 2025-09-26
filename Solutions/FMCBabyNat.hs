@@ -12,7 +12,7 @@ data Nat = O | S Nat
   deriving (Eq, Show)
 
 -- some sugar
-zero, one, two, three, four, five, six, seven, eight :: Nat
+zero, one, two, three, four, five, six, seven, eight, nine, ten :: Nat
 zero  = O
 one   = S zero
 two   = S one
@@ -22,6 +22,8 @@ five  = S four
 six   = S five
 seven = S six
 eight = S seven
+nine = S eight
+ten = S nine
 
 -- addition
 (+) :: Nat -> Nat -> Nat
@@ -90,8 +92,14 @@ n ^ (S m) = n * (n ^ m)--3*4 = 3*(4-1) > 3*(3-1) > 3*(2-1) > 3*(1)
 
 -- quotient
 (/) :: Nat -> Nat -> Nat
-(/) = undefined
-
+n / S O = n
+O / _ = O
+_ / O = undefined
+n / m =
+    case n-*m of
+      O -> S O --numerador e denominador iguais
+      S _ -> S O +((n-*m)/m)
+infixl 7 /
 -- remainder
 (%) :: Nat -> Nat -> Nat
 (%) = undefined
