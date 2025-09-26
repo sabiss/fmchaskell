@@ -100,9 +100,13 @@ n / m =
       O -> S O --numerador e denominador iguais
       S _ -> S O +((n-*m)/m)
 infixl 7 /
+
 -- remainder
 (%) :: Nat -> Nat -> Nat
-(%) = undefined
+_ % S O = O
+O % _ = O
+S n % S m = n%m
+infixl 7 %
 
 -- divides
 -- just for a change, we start by defining the "symbolic" operator
