@@ -125,7 +125,8 @@ infixl 7 %
 -- x `absDiff` y = |x - y|
 -- (Careful here: this - is the actual minus operator we know from the integers!)
 absDiff :: Nat -> Nat -> Nat
-absDiff = undefined
+absDiff n O = n
+absDiff n m = (n-*m) + (m-*n) -- se n>m o 1° caso dara um (S _) e o 2° dará zero e vice-versa para m>n
 
 (|-|) :: Nat -> Nat -> Nat
 (|-|) = absDiff
