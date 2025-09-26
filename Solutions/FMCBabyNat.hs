@@ -115,7 +115,12 @@ infixl 7 %
 -- and then define `devides` as a synonym to it
 -- again, outputs: O means False, S O means True
 (|||) :: Nat -> Nat -> Nat
-(|||) = undefined
+(|||) _ O= undefined
+(|||) _ (S O) = S O
+(|||) n m = 
+  case n%m of
+    O -> S O
+    S _ -> O
 
 -- x `absDiff` y = |x - y|
 -- (Careful here: this - is the actual minus operator we know from the integers!)
