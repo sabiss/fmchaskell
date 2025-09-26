@@ -125,7 +125,6 @@ absDiff = undefined
 
 factorial :: Nat -> Nat
 factorial O = O --apenas para não explodir
-factorial (S O) = S O
 factorial (S n) = S n * factorial n
 
 -- signum of a number (-1, 0, or 1)
