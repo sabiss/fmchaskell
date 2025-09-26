@@ -124,7 +124,9 @@ absDiff = undefined
 (|-|) = absDiff
 
 factorial :: Nat -> Nat
-factorial = undefined
+factorial (S O) = S O
+factorial O = O --por que? Não sei, apenas funciona
+factorial (S n) = S n * factorial n
 
 -- signum of a number (-1, 0, or 1)
 sg :: Nat -> Nat --um natural nunca será negativo, então so tenho que tratar quando for zero ou um 
