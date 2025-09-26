@@ -103,9 +103,11 @@ infixl 7 /
 
 -- remainder
 (%) :: Nat -> Nat -> Nat
-_ % S O = O
-O % _ = O
-S n % S m = n%m
+_ % O = undefined
+n % m = 
+    case n-*m of
+      S _ -> n -* ((n / m) * m) -- 6%3 = 6-((6/3)*3) 
+      O -> n --se eu dividir 2/5, 5 não cabe em 2, a divisão é 0 e sobra 2
 infixl 7 %
 
 -- divides
