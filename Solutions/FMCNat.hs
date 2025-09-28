@@ -142,7 +142,13 @@ exp = undefined
 
 -- quotient
 (</>) :: Nat -> Nat -> Nat
-(</>) = undefined
+(</>) numerador (S O) = numerador
+(</>) O _ = O
+(</>) _ O = O
+(</>) numerador denominador =
+    case denominador-numerador of
+      S _ -> O--d > m 8/10 quantas vezes 10 cabe inteiramente em 8? NENHUMA 
+      O -> S O + (</>) (numerador-denominador) denominador --n>d
 
 -- remainder
 (<%>) :: Nat -> Nat -> Nat
