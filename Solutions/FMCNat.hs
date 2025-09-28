@@ -95,7 +95,9 @@ even (S O) = False
 even (S(S n)) = even n
 
 odd :: Nat -> Bool
-odd = undefined
+odd O = False --par
+odd (S O) = True --impar 
+odd (S(S n)) = odd n
 
 
 ----------------------------------------------------------------
