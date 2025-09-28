@@ -132,13 +132,16 @@ times n  (S m) = n + (n * m) -- 5*S(S O) = 5+(5*SO) > 5+SO = 5+(5*O)
 
 -- power / exponentiation
 pow :: Nat -> Nat -> Nat
-pow = undefined
+pow _  O = S O
+pow n (S O) = n
+pow n (S m) = n * pow n m--3*4 = 3*(4-1) > 3*(3-1) > 3*(2-1) > 3*(1)
+--                         81     3*27      9*3=27       3*3=9   3
 
 exp :: Nat -> Nat -> Nat
-exp = undefined
+exp = pow
 
 (<^>) :: Nat -> Nat -> Nat
-(<^>) = undefined
+(<^>) = pow
 
 -- quotient
 (</>) :: Nat -> Nat -> Nat
