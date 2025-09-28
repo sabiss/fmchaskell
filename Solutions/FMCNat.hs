@@ -179,8 +179,9 @@ divides = (<|>)
 -- x `dist` y = |x - y|
 -- (Careful here: this - is the real minus operator!)
 dist :: Nat -> Nat -> Nat
-dist = undefined
-
+dist n O = n
+dist O n = n
+dist n m = (n-m) + (m-n)
 
 (|-|) = dist
 
