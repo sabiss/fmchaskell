@@ -213,7 +213,8 @@ lo n m =
 -- Do NOT use the following functions in the definitions above!
 
 toNat :: Integral a => a -> Nat
-toNat = undefined
+toNat 0 = O
+toNat n = S (toNat (n-1))
 
 fromNat :: Integral a => Nat -> a
 fromNat = undefined
