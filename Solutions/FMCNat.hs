@@ -186,7 +186,8 @@ dist n m = (n-m) + (m-n)
 (|-|) = dist
 
 factorial :: Nat -> Nat
-factorial = undefined
+factorial O = O 
+factorial (S n) = S n * factorial n
 
 -- signum of a number (-1, 0, or 1)
 sg :: Nat -> Nat
