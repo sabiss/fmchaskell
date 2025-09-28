@@ -38,7 +38,11 @@ instance Show Nat where
 
 instance Eq Nat where
 
-    (==) = undefined
+    (==) O O = True
+    (==) _ O = False
+    (==) O _ = False
+    (==) (S n) (S m) = (==) n m--minha ideia é ir diminuindo 1 a 1, se os dois chegarem a zero juntos, é por que são iguais, se não, não são iguais
+     
 
 instance Ord Nat where
 
