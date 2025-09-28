@@ -132,7 +132,7 @@ absDiff n m = (n-*m) + (m-*n) -- se n>m o 1° caso dara um (S _) e o 2° dará z
 (|-|) = absDiff
 
 factorial :: Nat -> Nat
-factorial O = O --apenas para não explodir
+factorial O = S O --apenas para não explodir
 factorial (S n) = S n * factorial n
 
 -- signum of a number (-1, 0, or 1)

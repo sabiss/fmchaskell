@@ -186,7 +186,7 @@ dist n m = (n-m) + (m-n)
 (|-|) = dist
 
 factorial :: Nat -> Nat
-factorial O = O 
+factorial O = S O
 factorial (S n) = S n * factorial n
 
 -- signum of a number (-1, 0, or 1)
