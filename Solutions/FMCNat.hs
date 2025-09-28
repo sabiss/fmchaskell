@@ -163,7 +163,7 @@ exp = pow
 
 -- euclidean division
 eucdiv :: (Nat, Nat) -> (Nat, Nat)
-eucdiv = undefined
+eucdiv (numerador, denominador) = (numerador </> denominador, numerador <%> denominador)
 
 -- divides
 (<|>) :: Nat -> Nat -> Bool
@@ -175,13 +175,12 @@ eucdiv = undefined
     S _ -> False
 
 divides = (<|>)
-
-
 -- distance between nats
 -- x `dist` y = |x - y|
 -- (Careful here: this - is the real minus operator!)
 dist :: Nat -> Nat -> Nat
 dist = undefined
+
 
 (|-|) = dist
 
