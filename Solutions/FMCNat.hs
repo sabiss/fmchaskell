@@ -123,7 +123,9 @@ monus (S n) (S m) = monus n m
 
 -- multiplication
 times :: Nat -> Nat -> Nat
-times = undefined
+times _ O = O --usa o 'n' quando precisar dele do outro lado da equação, se não usa o'_' mesmo
+times n  (S m) = n + (n * m) -- 5*S(S O) = 5+(5*SO) > 5+SO = 5+(5*O)
+                          --         10    5+5               5+0
 
 (<*>) :: Nat -> Nat -> Nat
 (<*>) = times
