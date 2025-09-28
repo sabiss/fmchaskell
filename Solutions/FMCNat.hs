@@ -114,10 +114,12 @@ odd (S(S n)) = odd n
 -- It behaves like subtraction, except that it returns 0
 -- when "normal" subtraction would return a negative number.
 monus :: Nat -> Nat -> Nat
-monus = undefined
+monus O n = O --se o primeiro número acabar antes do segundo, então ele é menor, logo, dará negativo e, pelo enunciado, deve ser zero
+monus n O = n --5-0=5
+monus (S n) (S m) = monus n m 
 
 (<->) :: Nat -> Nat -> Nat
-(<->) = undefined
+(<->) = monus
 
 -- multiplication
 times :: Nat -> Nat -> Nat
