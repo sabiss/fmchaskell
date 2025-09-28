@@ -223,7 +223,6 @@ fromNat (S n) = 1 + fromNat n
 
 -- Voilá: we can now easily make Nat an instance of Num.
 instance Num Nat where
-
     (+) = (<+>)
     (*) = (<*>)
     (-) = (<->)
@@ -231,6 +230,6 @@ instance Num Nat where
     signum = sg
     fromInteger x
       | x < 0     = undefined
-      | x == 0    = undefined
-      | otherwise = undefined
+      | x == 0    = O
+      | otherwise = toNat x
 
