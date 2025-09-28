@@ -31,10 +31,10 @@ data Nat where
 ----------------------------------------------------------------
 
 instance Show Nat where
-
     -- zero  should be shown as O
     -- three should be shown as SSSO
-    show = undefined
+    show O = "O"
+    show (S n) = "S" ++ show n
 
 instance Eq Nat where
 
@@ -101,8 +101,8 @@ odd = undefined
 monus :: Nat -> Nat -> Nat
 monus = undefined
 
-(-*) :: Nat -> Nat -> Nat
-(-*) = undefined
+(-) :: Nat -> Nat -> Nat
+(-) = undefined
 
 -- multiplication
 times :: Nat -> Nat -> Nat
@@ -179,7 +179,7 @@ instance Num Nat where
 
     (+) = (<+>)
     (*) = (<*>)
-    (-) = (<->)
+    (-) = monus
     abs n = n
     signum = sg
     fromInteger x
