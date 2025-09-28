@@ -37,24 +37,28 @@ instance Show Nat where
     show (S n) = "S" ++ show n
 
 instance Eq Nat where
-
     (==) O O = True
     (==) _ O = False
     (==) O _ = False
     (==) (S n) (S m) = (==) n m--minha ideia é ir diminuindo 1 a 1, se os dois chegarem a zero juntos, é por que são iguais, se não, não são iguais
-     
 
 instance Ord Nat where
-
-    (<=) = undefined
+    (<=) O O = True
+    (<=) O _ = True
+    (<=) _ O = False
+    (<=) (S n) (S m) = (<=) n m    
 
     -- Ord does not REQUIRE defining min and max.
     -- Howevener, you should define them WITHOUT using (<=).
     -- Both are binary functions: max m n = ..., etc.
 
-    min = undefined
-
-    max = undefined
+    min O n = O
+    min n O = O
+    min (S n) (S m)= S(min n m)--min 5 6 = 1+min 4 5 > 1+min 3 4 > 1+min 2 3 > 1+min 1 2 > 1+min 0 1
+    --                               5          5            4           3         2         0+1=1
+    max O n = n
+    max n O = n
+    max (S n) (S m) = S(max n m) --técnica similar ao min
 
 
 ----------------------------------------------------------------
