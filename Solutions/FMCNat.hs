@@ -114,7 +114,7 @@ odd (S(S n)) = odd n
 -- It behaves like subtraction, except that it returns 0
 -- when "normal" subtraction would return a negative number.
 monus :: Nat -> Nat -> Nat
-monus O n = O --se o primeiro número acabar antes do segundo, então ele é menor, logo, dará negativo e, pelo enunciado, deve ser zero
+monus O _ = O --se o primeiro número acabar antes do segundo, então ele é menor, logo, dará negativo e, pelo enunciado, deve ser zero
 monus n O = n --5-0=5
 monus (S n) (S m) = monus n m 
 
@@ -152,7 +152,7 @@ exp = undefined
 
 -- remainder
 (<%>) :: Nat -> Nat -> Nat
-(<%>) _ O = undefined
+(<%>) n O = n
 (<%>) n m = 
     case n-m of
       S _ -> n - ((</>)n m * m) -- 6%3 = 6-((6/3)*3) 
@@ -164,7 +164,12 @@ eucdiv = undefined
 
 -- divides
 (<|>) :: Nat -> Nat -> Bool
-(<|>) = undefined
+(<|>) _ O = undefined
+(<|>) _ (S O) = True
+(<|>) n m = 
+  case (<%>) n m of
+    O -> True
+    S _ -> False
 
 divides = (<|>)
 
