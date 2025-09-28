@@ -116,8 +116,8 @@ odd (S(S n)) = odd n
 monus :: Nat -> Nat -> Nat
 monus = undefined
 
-(-) :: Nat -> Nat -> Nat
-(-) = undefined
+(<->) :: Nat -> Nat -> Nat
+(<->) = undefined
 
 -- multiplication
 times :: Nat -> Nat -> Nat
@@ -194,7 +194,7 @@ instance Num Nat where
 
     (+) = (<+>)
     (*) = (<*>)
-    (-) = monus
+    (-) = (<->)
     abs n = n
     signum = sg
     fromInteger x
