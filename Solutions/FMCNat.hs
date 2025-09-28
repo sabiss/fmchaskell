@@ -192,8 +192,14 @@ sg (S n) = one
 
 -- lo b a is the floor of the logarithm base b of a
 lo :: Nat -> Nat -> Nat
-lo = undefined
-
+lo O O = undefined
+lo _ O = undefined
+lo O _ = undefined
+lo (S O) (S O) = undefined
+lo (S O) _ = undefined
+lo _ (S O) = O
+lo n m =  
+  if (<=) m n then O else S (lo n ((</>) m n))
 
 ----------------------------------------------------------------
 -- Num & Integral fun
