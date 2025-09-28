@@ -217,7 +217,8 @@ toNat 0 = O
 toNat n = S (toNat (n-1))
 
 fromNat :: Integral a => Nat -> a
-fromNat = undefined
+fromNat O = 0
+fromNat (S n) = 1 + fromNat n
 
 
 -- Voilá: we can now easily make Nat an instance of Num.
