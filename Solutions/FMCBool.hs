@@ -85,8 +85,9 @@ ifThenElse True n m = n
 ifThenElse False n m = m
 
 -- logical "implies"
-(==>) :: Bool -> Bool -> Bool
-(==>) = undefined
+(==>) :: Bool -> Bool -> Bool--viva a tabela verdade!
+True ==> False = False
+_ ==> _ = True
 
 infixr 1 ==>
 
