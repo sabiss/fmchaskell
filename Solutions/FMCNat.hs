@@ -43,7 +43,6 @@ instance Eq Nat where
     (==) (S n) (S m) = (==) n m--minha ideia é ir diminuindo 1 a 1, se os dois chegarem a zero juntos, é por que são iguais, se não, não são iguais
 
 instance Ord Nat where
-    (<=) O O = True
     (<=) O _ = True
     (<=) _ O = False
     (<=) (S n) (S m) = (<=) n m    
@@ -145,9 +144,7 @@ exp = pow
 
 -- quotient
 (</>) :: Nat -> Nat -> Nat
-(</>) numerador (S O) = numerador
-(</>) O _ = O
-(</>) _ O = O
+(</>) _ O = error "divisão por zero"
 (</>) numerador denominador =
     case denominador-numerador of
       S _ -> O--d > m 8/10 quantas vezes 10 cabe inteiramente em 8? NENHUMA 
@@ -167,7 +164,7 @@ eucdiv (numerador, denominador) = (numerador </> denominador, numerador <%> deno
 
 -- divides
 (<|>) :: Nat -> Nat -> Bool
-(<|>) _ O = undefined
+(<|>) _ O = error "divisão por zero"
 (<|>) _ (S O) = True
 (<|>) n m = 
   case (<%>) n m of
@@ -179,8 +176,6 @@ divides = (<|>)
 -- x `dist` y = |x - y|
 -- (Careful here: this - is the real minus operator!)
 dist :: Nat -> Nat -> Nat
-dist n O = n
-dist O n = n
 dist n m = (n-m) + (m-n)
 
 (|-|) = dist
