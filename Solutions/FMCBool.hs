@@ -81,7 +81,8 @@ not False = True
 
 -- if-then-else expression
 ifThenElse :: Bool -> a -> a -> a
-ifThenElse = undefined
+ifThenElse True n m = n
+ifThenElse False n m = m
 
 -- logical "implies"
 (==>) :: Bool -> Bool -> Bool
