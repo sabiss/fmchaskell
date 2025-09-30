@@ -100,7 +100,7 @@ infixl 1 <==
 
 -- logical equivalence
 (<=>) :: Bool -> Bool -> Bool
-(<=>) = undefined
+n <=> m = (n==>m) && (n<==m)
 
 infixr 1 <=>
 
