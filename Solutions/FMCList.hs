@@ -111,10 +111,18 @@ xs +++ (y:ys) = (xs +++ [y]) +++ ys
 -- (hmm?!)
 infixl 5 +++
 
--- minimum :: Ord a => [a] -> a
+minimum :: Ord a => [a] -> a
+minimum []= error "lista vazia"
+minimum [unicoElemento] = unicoElemento 
+minimum (x:xs) = min x (minimum xs)--faça o minimo entre o 1° elemento da lista e seu restando
+-- minimum 5:[3,4] = min 5 (minimum [3,4])=3
+--                            min 3 (minimum [4])=3
+--                               
+
 -- maximum :: Ord a => [a] -> a
 
--- take
+take :: [a]->[a]
+take= undefined
 -- drop
 
 -- takeWhile
