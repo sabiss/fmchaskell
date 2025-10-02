@@ -62,10 +62,12 @@ head [] = error "lista va"
 head (x:xs)= x
 
 tail :: [a] -> [a]
-tail = undefined
+tail [] = error "lista vazia"
+tail (_:xs) = xs
 
 null :: [a] -> Bool
-null = undefined
+null []= True
+null [_] = False
 
 length :: Integral i => [a] -> i
 length = undefined
