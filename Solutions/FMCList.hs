@@ -136,8 +136,17 @@ drop 0 xs = xs
 drop _ [ ] = error "lista vazia"
 drop n (x:xs) = drop (n-1) xs --vai removendo os primeiros itens da lista até que n seja 0, quando for, irá retornar uma lista com os itens que sobraram
 
--- takeWhile
--- dropWhile
+takeWhile :: (a -> Bool) -> [a] -> [a] --recebe uma função(condição) que retorna um bool e uma lista, retornando outra lista com os elementos que satisfazeram a condição
+takeWhile _ [ ] = [ ] --não importa a condição, se eu não tenho nada no que aplicar
+takeWhile condicao (x:xs) 
+ | condicao x = x: takeWhile condicao xs --se a condição der true no elemento x, x será adicionado ao prox resultado de takewhile com o restante da lista
+ | otherwise  = [] --a condição aplicada em x deu errado, retorna uma lista vazia que pode ser juntada com outra, formando uma lista com algo dentro ou ser apenas vazia mesmo
+
+dropWhile:: (a->Bool) -> [a] -> [a]
+dropWhile _ [] = []
+dropWhile condicao (x:xs)
+  | condicao x = dropWhile condicao xs--se deu true, eu continuo no restante da lista aplicando a condição
+  |otherwise   = x:xs--deu false, a condição parou de ser aceita, ou seja, devo retornar a lista completa incluindo o 1° elemento que eu estava testando por isso x:xs e não apenas xs
 
 -- tails
 -- init
