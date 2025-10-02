@@ -87,7 +87,7 @@ reverse (x:xs) = reverse xs ++ [x]
 
 (++) :: [a] -> [a] -> [a]
 [] ++ ys = ys
-(x:xs) ++ (y:ys) = x:(xs++ys)
+(x:xs) ++ ys = x:(xs++ys)
 
 -- right-associative for performance!
 -- (what?!)
@@ -104,7 +104,7 @@ snoc x (y:ys) = y : snoc x ys --tiro todos os elementos de ys até deixar ele va
 -- different implementation of (++)
 (+++) :: [a] -> [a] -> [a]
 xs +++ []     = xs
-xs +++ [y]    = xs <: y
+xs +++ [y]    = xs <: y--adiciona y no final de xs
 xs +++ (y:ys) = (xs +++ [y]) +++ ys
 
 -- left-associative for performance!
