@@ -86,8 +86,8 @@ reverse [ ] = [ ]
 reverse (x:xs) = reverse xs ++ [x]
 
 (++) :: [a] -> [a] -> [a]
-(++) [] ys = ys
-(++) (x:xs) (y:ys) = x:(xs++ys)
+[] ++ ys = ys
+(x:xs) ++ (y:ys) = x:(xs++ys)
 
 -- right-associative for performance!
 -- (what?!)
@@ -95,7 +95,8 @@ infixr 5 ++
 
 -- (snoc is cons written backwards)
 snoc :: a -> [a] -> [a]
-snoc = undefined
+snoc x []= [x]
+snoc x (y:ys) = y : snoc x ys --tiro todos os elementos de ys até deixar ele vazio, quando coloco o x dentro. Após deixar ys vazia, adicionar o x nele, saio adicionando os y que havia tirado
 
 (<:) :: [a] -> a -> [a]
 (<:) = flip snoc
