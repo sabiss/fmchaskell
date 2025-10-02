@@ -124,8 +124,13 @@ maximum [ ] = error "Lista vazia bro"
 maximum [unicoElemento] = unicoElemento
 maximum (x:xs) = max x (maximum xs)--semelhante a minimum, eu vou deixando xs cada vez menor até sobrar apenas um elemento dentro e, após isso, vou aplicando max neles 
 
-take :: [a]->[a]
-take= undefined
+take :: Int -> [a] -> [a]
+take 0 _ = [ ]
+take _ [ ] = [ ]
+take n (x:xs) = x: take (n-1) xs --2 [8,9,4,5] = 8: take 1 [9,4,5] = [8,9]
+--                                                      9: take 0 [4,5] = [9]
+--                                                             [ ] 
+
 -- drop
 
 -- takeWhile
