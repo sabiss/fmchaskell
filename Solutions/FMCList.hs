@@ -56,7 +56,7 @@ write (x : xs)  for our Cons x xs
 write [u,v]     for our u `Cons` (v `Cons` Nil)
 
 -} 
-
+-- elemento : lista
 head :: [a] -> a--pega uma lista e retorna o 1° item dela
 head [] = error "lista va"
 head (x:xs)= x
@@ -82,10 +82,12 @@ product [ ]= 1
 product (x:xs) = x * product xs
 
 reverse :: [a] -> [a]
-reverse = undefined
+reverse [ ] = [ ]
+reverse (x:xs) = reverse xs ++ [x]
 
 (++) :: [a] -> [a] -> [a]
-(++) = undefined
+(++) [] ys = ys
+(++) (x:xs) (y:ys) = x:(xs++ys)
 
 -- right-associative for performance!
 -- (what?!)
