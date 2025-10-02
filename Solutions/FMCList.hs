@@ -119,7 +119,10 @@ minimum (x:xs) = min x (minimum xs)--faça o minimo entre o 1° elemento da list
 --                            min 3 (minimum [4])=3
 --                               
 
--- maximum :: Ord a => [a] -> a
+maximum :: Ord a => [a] -> a
+maximum [ ] = error "Lista vazia bro"
+maximum [unicoElemento] = unicoElemento
+maximum (x:xs) = max x (maximum xs)--semelhante a minimum, eu vou deixando xs cada vez menor até sobrar apenas um elemento dentro e, após isso, vou aplicando max neles 
 
 take :: [a]->[a]
 take= undefined
