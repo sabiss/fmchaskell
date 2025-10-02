@@ -131,7 +131,10 @@ take n (x:xs) = x: take (n-1) xs --2 [8,9,4,5] = 8: take 1 [9,4,5] = [8,9]
 --                                                      9: take 0 [4,5] = [9]
 --                                                             [ ] 
 
--- drop
+drop :: Int -> [a] ->[a]
+drop 0 xs = xs
+drop _ [ ] = error "lista vazia"
+drop n (x:xs) = drop (n-1) xs --vai removendo os primeiros itens da lista até que n seja 0, quando for, irá retornar uma lista com os itens que sobraram
 
 -- takeWhile
 -- dropWhile
