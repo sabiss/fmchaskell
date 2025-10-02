@@ -55,10 +55,11 @@ write []        for our Nil
 write (x : xs)  for our Cons x xs
 write [u,v]     for our u `Cons` (v `Cons` Nil)
 
--}
+-} 
 
-head :: [a] -> a
-head = undefined
+head :: [a] -> a--pega uma lista e retorna o 1° item dela
+head [] = error "lista va"
+head (x:xs)= x
 
 tail :: [a] -> [a]
 tail = undefined
