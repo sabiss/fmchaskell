@@ -229,7 +229,14 @@ replicate quantidade item = item: replicate (quantidade-1) item
 -- isInfixOf
 -- isSuffixOf
 
--- zip
+zip::[a]->[b]->[(a,b)]--pega uma lista A e uma lista B e retorna os primeiros itens de cada um juntos numa tupla EX: [1,2] e [3,4] zipando elas teriamos: [(1,3),(2,4)]
+zip _ [] = []
+zip (x:xs) (y:ys) = 
+  if length (x : xs) /= length (y : ys) then
+    error "listas de tamanho difentes" --pra zipar obviamente tem que ter o mesmo tamanho pra cada item ter um par
+  else
+    (x, y) : zip xs ys
+
 -- zipWith
 
 -- intercalate
