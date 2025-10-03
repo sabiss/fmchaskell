@@ -211,7 +211,9 @@ map _ [] = []
 map funcao (x:xs) = funcao x : map funcao xs
 
 -- cycle
--- repeat
+
+repeat:: a ->[a]--pega um item e cria uma lista infinita com esse item dentro
+repeat item = item : repeat item
 
 --Num a => a->b->[b]não daria certo, pois Num so me da acesso a operações matemáticas e não aos numeros em si
 replicate::Int -> b->[b]--irá pegar um número, um item e devolver uam lista com esse item dentro repetido a quantidade de vezes dada
