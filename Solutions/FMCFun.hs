@@ -14,7 +14,7 @@ import Prelude hiding
 -- u = curry f
 -- and returns its currified version
 curry :: ((a,b) -> c) -> (a->b->c)
-(curry f) n m = f(n,m)--recebo f, que será aplicada em parâmetros n m quaisquer e preciso dizer como ela vai se comportar. Ela vai se comportar em seu modo currificado assim como f se comportaria na sua forma descurrificada
+(curry f) n m = f (n,m)--recebo f, que será aplicada em parâmetros n m quaisquer e preciso dizer como ela vai se comportar. Ela vai se comportar em seu modo currificado assim como f se comportaria na sua forma descurrificada
 
 -- uncurry takes a currified function
 -- and returns its "traditional" binary version
