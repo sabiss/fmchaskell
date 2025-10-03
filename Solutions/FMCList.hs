@@ -69,11 +69,11 @@ null :: [a] -> Bool
 null []= True
 null [_] = False
 
-length :: Integral i => [a] -> i
+length :: Integral i => [a] -> i--integral faz com que 'i' passa ser um inteiro de precisão ilimitada
 length [] = 0
 length (_:xs) = 1 + length xs
 
-sum :: Num a => [a] -> a
+sum :: Num a => [a] -> a--Num faz com que coisas do tipo 'a' suportem operações matemáticas 
 sum [] = 0
 sum (x:xs) = x + sum xs 
 
@@ -111,7 +111,7 @@ xs +++ (y:ys) = (xs +++ [y]) +++ ys
 -- (hmm?!)
 infixl 5 +++
 
-minimum :: Ord a => [a] -> a
+minimum :: Ord a => [a] -> a--Ord permite que coisas do tipo 'a' possam ser ordenadas, comparadas se são maior ou menor
 minimum []= error "lista vazia"
 minimum [unicoElemento] = unicoElemento 
 minimum (x:xs) = min x (minimum xs)--faça o minimo entre o 1° elemento da lista e seu restando
@@ -124,7 +124,7 @@ maximum [ ] = error "Lista vazia bro"
 maximum [unicoElemento] = unicoElemento
 maximum (x:xs) = max x (maximum xs)--semelhante a minimum, eu vou deixando xs cada vez menor até sobrar apenas um elemento dentro e, após isso, vou aplicando max neles 
 
-take :: Int -> [a] -> [a]
+take :: Int -> [a] -> [a]--Int faz 'a' ser um inteiro de precisão limitada
 take 0 _ = [ ]
 take _ [ ] = [ ]
 take n (x:xs) = x: take (n-1) xs --2 [8,9,4,5] = 8: take 1 [9,4,5] = [8,9]
@@ -188,7 +188,8 @@ or (x:xs )
 
 -- (!!)
 
-elemSemAny:: Eq a => a -> [a] -> Bool
+--Eq faz com coisa do tipo 'a' possam ser comparados
+elemSemAny:: Eq a => a -> [a] -> Bool--elem verifica se um item está presente na lista ou não
 elemSemAny _ [] = False
 elemSemAny n (x:xs) =  if n == x then True else elemSemAny n xs
 
