@@ -207,7 +207,11 @@ map funcao (x:xs) = funcao x : map funcao xs
 
 -- cycle
 -- repeat
--- replicate
+
+--Num a => a->b->[b]não daria certo, pois Num so me da acesso a operações matemáticas e não aos numeros em si
+replicate::Int -> b->[b]--irá pegar um número, um item e devolver uam lista com esse item dentro repetido a quantidade de vezes dada
+replicate 0 _ = []
+replicate quantidade item = item: replicate (quantidade-1) item
 
 -- isPrefixOf
 -- isInfixOf
