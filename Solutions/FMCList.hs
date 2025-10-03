@@ -204,7 +204,12 @@ elemSemAny n (x:xs) =  if n == x then True else elemSemAny n xs
 
 -- (!!)
 
--- filter
+filter::(a->Bool)->[a]->[a]--recebe uma condicao a ser atendida, uma lista e retorna todos os itens da lista que satisfazeram a condicao
+filter _ [ ] = []--independente da condicao, se eu não tenho nada pra testar então os itens que safisfazeram a condição foram nenhum(lista vazia)
+filter condicao (x:xs) 
+  |condicao x = x: filter condicao xs--se x satisfez a condicao pego 'x' e junto com o resultado da filtragem no restante da lista
+  |otherwise = filter condicao xs--x não satisfez, então devo apenas continuar procurando um que satisfaça
+
 
 map::(a->b) -> [a] -> [b]
 map _ [] = []
