@@ -178,7 +178,9 @@ init (x:xs) = x: init xs
 -- (!!)
 
 -- filter
--- map
+map::(a->b) -> [a] -> [b]
+map _ [] = []
+map funcao (x:xs) = funcao x : map funcao xs
 
 -- cycle
 -- repeat
