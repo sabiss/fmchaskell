@@ -164,12 +164,17 @@ inits (x:xs) = [] : map(x:) (inits xs)
 
 -- subsequences
 
-any:: (a->Bool) -> [a] -> Bool--verifica se tem pelo menos um item que satisfaça uam condição
+any:: (a->Bool) -> [a] -> Bool--verifica se tem PELO MENOS UM item que satisfaça uam condição
 any _ [] = False --numa lista vazia não haverá um item sequer que satisfaça minha condição
 any condicao (x:xs) 
   | condicao x =  True --achei o item que possue a condicao
   | otherwise = any condicao xs--não era o item x que safisfaz a condicao, continuo procurando
--- all
+
+all::(a->Bool) ->[a]->Bool-- verifica se TODOS os itens dessa lista satisfazem a condição
+all _ [] = True --se não tem um item na lista, não tem itens para NÃO-satisfazer a condicao, logo, é true
+all condicao (x:xs) 
+  | condicao x = all condicao xs--x satisfez a condicao, continue a verificar no restante da lista
+  | otherwise = False--se um item não satisfez a condicao, então all dessa lista é false
 
 and::[Bool] -> Bool--pega um array de booleanos e verifica se todos são true ou não
 and [] = True
@@ -193,7 +198,7 @@ elemComAny = any
 -- (without using other functions except (==))
 
 --Eq faz com coisa do tipo 'a' possam ser comparados
-elemSemAny:: Eq a => a -> [a] -> Bool--elem verifica se um item está presente na lista ou não
+elemSemAny:: Eq a => a -> [a] -> Bool--elem verifica se PELO MENOS UM item está presente na lista ou não
 elemSemAny _ [] = False
 elemSemAny n (x:xs) =  if n == x then True else elemSemAny n xs
 
