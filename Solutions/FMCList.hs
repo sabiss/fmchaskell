@@ -188,7 +188,12 @@ or (x:xs )
 
 -- (!!)
 
+elemSemAny:: Eq a => a -> [a] -> Bool
+elemSemAny _ [] = False
+elemSemAny n (x:xs) =  if n == x then True else elemSemAny n xs
+
 -- filter
+
 map::(a->b) -> [a] -> [b]
 map _ [] = []
 map funcao (x:xs) = funcao x : map funcao xs
