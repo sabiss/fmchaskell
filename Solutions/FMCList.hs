@@ -153,7 +153,11 @@ tails [ ] = [[]]
 tails (x:xs) = (x:xs) : tails xs--tails [1,2,3] > [1,2,3] : tails [2,3] > [2,3] : tails [3] > [3] : tails[ ]
 --                                                 [1,2,3],[2,3],[3],[] < [2,3],[3],[] < [3],[] 
 
--- init
+init :: [a]->[a]--retorna todos os itens, menos o último
+init [] = error "Lista Vazia"
+init [a] = [ ]
+init (x:xs) = x: init xs
+
 -- inits
 
 -- subsequences
