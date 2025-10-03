@@ -164,7 +164,11 @@ inits (x:xs) = [] : map(x:) (inits xs)
 
 -- subsequences
 
--- any
+any:: (a->Bool) -> [a] -> Bool--verifica se tem pelo menos um item que satisfaça uam condição
+any _ [] = False --numa lista vazia não haverá um item sequer que satisfaça minha condição
+any condicao (x:xs) 
+  | condicao x =  True --achei o item que possue a condicao
+  | otherwise = any condicao xs--não era o item x que safisfaz a condicao, continuo procurando
 -- all
 
 and::[Bool] -> Bool--pega um array de booleanos e verifica se todos são true ou não
@@ -181,13 +185,9 @@ or (x:xs )
 
 -- concat
 
-any:: (a->Bool) -> [a] -> Bool--verifica se tem pelo menos um item que satisfaça uam condição
-any _ [] = False --numa lista vazia não haverá um item sequer que satisfaça minha condição
-any condicao (x:xs) 
-  | condicao x =  True --achei o item que possue a condicao
-  | otherwise = any condicao xs--não era o item x que safisfaz a condicao, continuo procurando
-
 -- elem using the funciton 'any' above
+elemComAny :: (a->Bool) -> [a] -> Bool
+elemComAny = any
 
 -- elem': same as elem but elementary definition
 -- (without using other functions except (==))
