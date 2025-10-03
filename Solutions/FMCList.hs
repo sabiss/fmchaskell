@@ -173,7 +173,11 @@ and (x:xs)
   | x = and xs --o item x é True, então ele vai verificar o restante da lista
   | otherwise = False--um item é false, já joga um false na saida
 
--- or
+or::[Bool] -> Bool
+or [] = False --numa lista vazia não vai haver nada true ne
+or (x:xs )
+  |x = True--achei um caso válido, já satisfaz a "ou"
+  |otherwise = or xs--não achei um caso true, continuo procurando
 
 -- concat
 
