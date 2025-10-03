@@ -167,7 +167,12 @@ inits (x:xs) = [] : map(x:) (inits xs)
 -- any
 -- all
 
--- and
+and::[Bool] -> Bool--pega um array de booleanos e verifica se todos são true ou não
+and [] = True
+and (x:xs) 
+  | x = and xs --o item x é True, então ele vai verificar o restante da lista
+  | otherwise = False--um item é false, já joga um false na saida
+
 -- or
 
 -- concat
