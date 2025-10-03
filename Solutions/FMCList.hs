@@ -188,7 +188,10 @@ or (x:xs )
   |x = True--achei um caso válido, já satisfaz a "ou"
   |otherwise = or xs--não achei um caso true, continuo procurando
 
--- concat
+concat::[[a]]->[a]--recebe uma lista de listas e retorna uma lista com todos os itens juntos numa lista só
+concat [] = [ ]
+concat (x:xs) =  x ++ concat xs--EX: [[1,2],[3,4]] = [1,2] ++ concat [[3,4]] > concat [3,4] ++ []
+--                                      [1,2,3,4]    [1,2] ++     [3,4]                  [3,4]
 
 -- elem using the funciton 'any' above
 elemComAny :: (a->Bool) -> [a] -> Bool
