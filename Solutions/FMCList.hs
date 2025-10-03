@@ -148,7 +148,11 @@ dropWhile condicao (x:xs)
   | condicao x = dropWhile condicao xs--se deu true, eu continuo no restante da lista aplicando a condição
   |otherwise   = x:xs--deu false, a condição parou de ser aceita, ou seja, devo retornar a lista completa incluindo o 1° elemento que eu estava testando por isso x:xs e não apenas xs
 
--- tails
+tails::[a] ->[[a]] --recebe uma lista e retorna uam lista de listas :0
+tails [ ] = [[]]
+tails (x:xs) = (x:xs) : tails xs--tails [1,2,3] > [1,2,3] : tails [2,3] > [2,3] : tails [3] > [3] : tails[ ]
+--                                                 [1,2,3],[2,3],[3],[] < [2,3],[3],[] < [3],[] 
+
 -- init
 -- inits
 
