@@ -243,7 +243,9 @@ zip (x:xs) (y:ys) =
   else
     (x, y) : zip xs ys
 
--- zipWith
+zipWith:: [a] -> [b] -> (a->b->c) -> [c]--pega os 1° itens de cada lista e aplica um função neles, depois cria uma lista com todos os resultados
+zipWith _ [] _ = []
+zipWith (x:xs) (y:ys) funcao = funcao x y : zipWith xs ys funcao
 
 -- intercalate
 -- nub
