@@ -202,7 +202,10 @@ elemSemAny:: Eq a => a -> [a] -> Bool--elem verifica se PELO MENOS UM item está
 elemSemAny _ [] = False
 elemSemAny n (x:xs) =  if n == x then True else elemSemAny n xs
 
--- (!!)
+(!!)::Int->[b] -> b--recebo um index, uma lista de item e retorno o item correspondente aquele index
+0 !! (x:_) = x--se o index for zero, é por que é o 1° item de uma lista qualquer que deve ser retornado
+index !! (_:xs) = (index-1) !! xs--vou "retirando" itens da lista e diminuindo o index ate que chegue a zero, como, estou retirando tanto um item da lista com 1 do numerador, quando o index for zero, é pq cheguei no item que ele queria 
+--[EX]: 2 !! [1,3,5,8], ele quer 5, então vou fazendo: 1 !! [3,5,8] > 0 !! [5,8], no index 0 o 1° item é justamente o 5 que queria
 
 filter::(a->Bool)->[a]->[a]--recebe uma condicao a ser atendida, uma lista e retorna todos os itens da lista que satisfazeram a condicao
 filter _ [ ] = []--independente da condicao, se eu não tenho nada pra testar então os itens que safisfazeram a condição foram nenhum(lista vazia)
