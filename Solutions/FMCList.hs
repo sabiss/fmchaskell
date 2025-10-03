@@ -124,7 +124,7 @@ maximum [ ] = error "Lista vazia bro"
 maximum [unicoElemento] = unicoElemento
 maximum (x:xs) = max x (maximum xs)--semelhante a minimum, eu vou deixando xs cada vez menor até sobrar apenas um elemento dentro e, após isso, vou aplicando max neles 
 
-take :: Int -> [a] -> [a]--Int faz 'a' ser um inteiro de precisão limitada
+take :: Int -> [a] -> [a]--Int faz 'a' ser um inteiro de precisão limitadax
 take 0 _ = [ ]
 take _ [ ] = [ ]
 take n (x:xs) = x: take (n-1) xs --2 [8,9,4,5] = 8: take 1 [9,4,5] = [8,9]
@@ -181,17 +181,23 @@ or (x:xs )
 
 -- concat
 
+any:: (a->Bool) -> [a] -> Bool--verifica se tem pelo menos um item que satisfaça uam condição
+any _ [] = False --numa lista vazia não haverá um item sequer que satisfaça minha condição
+any condicao (x:xs) 
+  | condicao x =  True --achei o item que possue a condicao
+  | otherwise = any condicao xs--não era o item x que safisfaz a condicao, continuo procurando
+
 -- elem using the funciton 'any' above
 
 -- elem': same as elem but elementary definition
 -- (without using other functions except (==))
 
--- (!!)
-
 --Eq faz com coisa do tipo 'a' possam ser comparados
 elemSemAny:: Eq a => a -> [a] -> Bool--elem verifica se um item está presente na lista ou não
 elemSemAny _ [] = False
 elemSemAny n (x:xs) =  if n == x then True else elemSemAny n xs
+
+-- (!!)
 
 -- filter
 
