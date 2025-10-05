@@ -233,6 +233,7 @@ replicate quantidade item = item: replicate (quantidade-1) item
 
 isPrefixOf::Eq a => [a] -> [a] -> Bool--verifica se uma lista é o começo da outra
 isPrefixOf [] _ = True
+isPrefixOf _ [] = False 
 isPrefixOf (x:xs) (y:ys) = if  x==y then isPrefixOf xs ys else False
 -- isInfixOf
 -- isSuffixOf
