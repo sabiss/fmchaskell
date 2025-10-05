@@ -242,7 +242,12 @@ isInfixOf _ [] = False--temrinei a 2° lista, e não achei a sequência
 isInfixOf (x:xs) (y:ys) = 
   (x == y && isPrefixOf xs ys) || isInfixOf (x:xs) ys
 
--- isSuffixOf
+isSuffixOf::Eq a =>[a] -> [a] -> Bool--vê se uma lista está contida no final da outra
+isSuffixOf [] _ = True --uma lista vazia é sufixo de toda lista, segundo teoria dos conjuntos que todo conjunto possui um conjunto vazio dentro
+isSuffixOf (x:xs) (y:ys) = --divei aqui | vejo se são do mesmo tamanho, se n, diminui até ser, quando for, verifico se elas são iguais
+  if length(x:xs) < length(y:ys)
+    then isSuffixOf (x:xs) (ys)
+    else (x:xs) == (y:ys)
 
 zip::[a]->[b]->[(a,b)]--pega uma lista A e uma lista B e retorna os primeiros itens de cada um juntos numa tupla EX: [1,2] e [3,4] zipando elas teriamos: [(1,3),(2,4)]
 zip _ [] = []
