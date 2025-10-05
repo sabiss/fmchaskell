@@ -235,7 +235,13 @@ isPrefixOf::Eq a => [a] -> [a] -> Bool--verifica se uma lista é o começo da ou
 isPrefixOf [] _ = True
 isPrefixOf _ [] = False 
 isPrefixOf (x:xs) (y:ys) = if  x==y then isPrefixOf xs ys else False
--- isInfixOf
+
+isInfixOf:: Eq a=> [a]->[a]->Bool--vendo se uma lista se encontra em qualquer lugar de outra em sequêcia
+isInfixOf [] _ = True--terminou a 1° lista, quer dizer que acabei de comparar os itens, então já achei a sequência
+isInfixOf _ [] = False--temrinei a 2° lista, e não achei a sequência
+isInfixOf (x:xs) (y:ys) = 
+  (x == y && isPrefixOf xs ys) || isInfixOf (x:xs) ys
+
 -- isSuffixOf
 
 zip::[a]->[b]->[(a,b)]--pega uma lista A e uma lista B e retorna os primeiros itens de cada um juntos numa tupla EX: [1,2] e [3,4] zipando elas teriamos: [(1,3),(2,4)]
