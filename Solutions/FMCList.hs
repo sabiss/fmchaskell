@@ -158,7 +158,7 @@ init [] = error "Lista Vazia"
 init [a] = [ ]
 init (x:xs) = x: init xs
 
-inits :: [a] ->[[a]]
+inits :: [a] ->[[a]]--gera todas as "cabeças" de uma lista
 inits [] = [[]]
 inits (x:xs) = [] : map(x:) (inits xs) 
 
