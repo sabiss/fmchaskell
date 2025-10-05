@@ -231,7 +231,9 @@ replicate::Int -> b->[b]--irá pegar um número, um item e devolver uam lista co
 replicate 0 _ = []
 replicate quantidade item = item: replicate (quantidade-1) item
 
--- isPrefixOf
+isPrefixOf::Eq a => [a] -> [a] -> Bool--verifica se uma lista é o começo da outra
+isPrefixOf [] _ = True
+isPrefixOf (x:xs) (y:ys) = if  x==y then isPrefixOf xs ys else False
 -- isInfixOf
 -- isSuffixOf
 
