@@ -124,6 +124,7 @@ maximum [ ] = error "Lista vazia bro"
 maximum [unicoElemento] = unicoElemento
 maximum (x:xs) = max x (maximum xs)--semelhante a minimum, eu vou deixando xs cada vez menor até sobrar apenas um elemento dentro e, após isso, vou aplicando max neles 
 
+--take pega os n primeiros itens de uma lista e os retorna
 take :: Int -> [a] -> [a]--Int faz 'a' ser um inteiro de precisão limitadax
 take 0 _ = [ ]
 take _ [ ] = [ ]
@@ -264,9 +265,20 @@ zipWith (x:xs) (y:ys) funcao = funcao x y : zipWith xs ys funcao
 -- intercalate
 -- nub
 
--- splitAt
--- what is the problem with the following?:
+splitAt::Int -> [a] ->([a],[a])--didide a 1° lista nos n primeiros números e forma um tupla com ela e o restante
+splitAt 0 xs = ([], xs)
+splitAt _ [] = ([],[])
+splitAt numero (x:xs) = dividindo numero [] (x:xs)--DIVIDINDO é uma função acumuladora
+  where 
+    dividindo 0 acumulado listaRestante = (acumulado, listaRestante)--"acumulado" carrega o resultado anterior a chamada atual
+    dividindo n acumulado (x:xs) = dividindo (n-1) (acumulado++[x]) xs
+
+-- what is the problem with the following?: NENHUM! Também funciona
 -- splitAt n xs  =  (take n xs, drop n xs)
+splitComTakeDrop:: Int -> [a] ->([a],[a])
+splitComTakeDrop 0 xs = ([], xs)
+splitComTakeDrop _ [] = ([],[])
+splitComTakeDrop numero xs = ((take numero xs) , drop numero xs)
 
 -- break
 
